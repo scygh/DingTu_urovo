@@ -1,0 +1,178 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion rootProject.ext.android["compileSdkVersion"]
+    buildToolsVersion rootProject.ext.android["buildToolsVersion"]
+    useLibrary 'org.apache.http.legacy'
+
+    defaultConfig {
+        applicationId "com.lianxi.dingtu.dingtu_urovo"
+        minSdkVersion rootProject.ext.android["minSdkVersion"]
+        targetSdkVersion rootProject.ext.android["targetSdkVersion"]
+        versionCode rootProject.ext.android["versionCode"]
+        versionName rootProject.ext.android["versionName"]
+        testInstrumentationRunner rootProject.ext.dependencies["androidJUnitRunner"]
+        vectorDrawables.useSupportLibrary = true
+        vectorDrawables.generatedDensities = ['hdpi', 'xxhdpi']
+        multiDexEnabled true
+    }
+    buildTypes {
+        debug {
+            buildConfigField "boolean", "LOG_DEBUG", "true"
+            buildConfigField "boolean", "USE_CANARY", "false"
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            multiDexKeepProguard file('multidex-config.pro')
+        }
+
+        release {
+            buildConfigField "boolean", "LOG_DEBUG", "false"
+            buildConfigField "boolean", "USE_CANARY", "false"
+            minifyEnabled false
+            shrinkResources false
+            zipAlignEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            multiDexKeepProguard file('multidex-config.pro')
+        }
+    }
+
+    applicationVariants.all { variant ->
+        variant.outputs.all { output ->
+            def outputFile = output.outputFile
+            if (variant.buildType.name == 'release') {
+
+                outputFileName = "LangBang_${releaseTime()}_Business_${defaultConfig.versionName}.apk"
+
+            }
+        }
+    }
+
+    lintOptions {
+        disable 'InvalidPackage'
+        disable "ResourceType"
+        abortOnError false
+    }
+
+    sourceSets {
+        main {
+            jniLibs.srcDirs = ['libs']
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+repositories {
+    flatDir {
+        dirs 'libs'
+    }
+}
+
+def releaseTime() {
+    return new Date().format("yyyy-MM-dd", TimeZone.getTimeZone("UTC"))
+}
+
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+
+    //support
+    implementation rootProject.ext.dependencies["cardview-v7"]
+    implementation rootProject.ext.dependencies["design"]
+
+    //tools
+
+    //注意 Arms 核心库现在并不会依赖某个 EventBus, 要想使用 EventBus, 还请在项目中自行依赖对应的 EventBus
+
+    //现在支持两种 EventBus, greenrobot 的 EventBus 和畅销书 《Android源码设计模式解析与实战》的作者 何红辉 所作的 AndroidEventBus
+
+    //依赖后 Arms 会自动检测您依赖的 EventBus 并自动注册
+
+    //建议使用 AndroidEventBus, 特别是组件化项目, 原因请看 https://github.com/hehonghui/AndroidEventBus/issues/49
+
+    //这种做法可以让使用者有自行选择三方库的权利, 并且还可以减轻 Arms 的体积
+    implementation rootProject.ext.dependencies["androideventbus"]
+
+    //    implementation rootProject.ext.dependencies["eventbus"]
+    annotationProcessor rootProject.ext.dependencies["dagger2-compiler"]
+    implementation rootProject.ext.dependencies["progressmanager"]
+    implementation rootProject.ext.dependencies["retrofit-url-manager"]
+    implementation rootProject.ext.dependencies["lifecyclemodel"]
+
+    //view
+    annotationProcessor(rootProject.ext.dependencies["butterknife-compiler"]) {
+        exclude module: 'support-annotations'
+    }
+    implementation rootProject.ext.dependencies["paginate"]
+
+    //arms
+
+    //    implementation project(':arms')
+
+    //Github 仓库上最新的 Demo 具有下一个版本的新特性, 所以依赖最新的远程库会出现版本不兼容的情况, 详情请查看 https://github.com/JessYanCoding/MVPArms/wiki/Issues#2
+    implementation 'me.jessyan:arms:2.5.0'
+    implementation rootProject.ext.dependencies["multidex"]
+
+    //Arms 核心库不再包含 AndroidAutoLayout, 现在可自行选择屏幕适配方案, 不想使用 AndroidAutoLayout 就不要依赖 arms-autolayout
+
+    //    implementation 'me.jessyan:arms-autolayout:2.5.0'
+
+    //现在已经将 Demo 中的屏幕适配框架从 AndroidAutoLayout 替换为 AndroidAutoSize, AndroidAutoLayout 和 AndroidAutoSize 可以在项目中共存
+
+    //所以旧项目只要依赖 arms-autolayout 即可兼容之前的旧页面, 新页面使用 AndroidAutoSize 进行适配即可
+
+    //    implementation rootProject.ext.dependencies["autosize"]
+
+    //Arms 核心库不再包含 Glide, 想使用其他图片加载框架或者想自行扩展 ImageLoaderStrategy 就不要依赖 arms-imageloader-glide
+
+    //依赖 arms-imageloader-glide 后还需要在 GlobalConfiguration 中手动注册 GlideImageLoaderStrategy
+    implementation 'me.jessyan:arms-imageloader-glide:2.5.0'
+
+    //test
+    testImplementation rootProject.ext.dependencies["junit"]
+    debugImplementation rootProject.ext.dependencies["canary-debug"]
+    releaseImplementation rootProject.ext.dependencies["canary-release"]
+    testImplementation rootProject.ext.dependencies["canary-release"]
+    implementation files('libs/commons-lang3-3.5.jar')
+    implementation files('libs/Msc.jar')
+    implementation files('libs/telpo_api.jar')
+    implementation files('libs/SmartCardLib.jar')
+    implementation(name: 'LibZxing-release', ext: 'aar')
+    implementation rootProject.ext.dependencies["nfclib"]
+    implementation rootProject.ext.dependencies["bottom-bar"]
+    implementation rootProject.ext.dependencies["fastjson"]
+    implementation rootProject.ext.dependencies["swipeback"]
+    implementation rootProject.ext.dependencies["Toasty"]
+    implementation rootProject.ext.dependencies["rebound"]
+    implementation rootProject.ext.dependencies["material-dialogs"]
+    implementation rootProject.ext.dependencies["BaseRecyclerViewAdapterHelper"]
+    implementation rootProject.ext.dependencies["stepview"]
+    implementation rootProject.ext.dependencies["Android-PickerView"]
+    implementation rootProject.ext.dependencies["umeng-analytics"]
+    implementation rootProject.ext.dependencies["okgo"]
+    implementation rootProject.ext.dependencies["advancedluban"]
+    implementation rootProject.ext.dependencies["constraint-layout"]
+
+    //    implementation project(path: ':libuvccamera')
+
+    //    implementation project(path: ':usbCameraCommon')
+    implementation("com.serenegiant:common:${commonLibVersion}") {
+        exclude module: 'support-v4'
+    }
+
+    //    implementation project(path: ':camera_ui')
+
+    //    implementation files('libs/easyedge-sdk.jar')
+    implementation 'com.github.yalantis:ucrop:2.2.3'
+    implementation 'com.github.ForgetAll:LoadingDialog:v1.1.0-alpha'
+    implementation 'com.annimon:stream:1.2.1'
+    implementation 'com.github.zhouzhuo810:OkUSB:1.0.0'
+    implementation 'com.google.android:flexbox:1.1.0'
+    implementation 'com.wefika:flowlayout:0.3.4'
+    implementation 'com.lzy.widget:imagepicker:0.6.1'
+    implementation 'com.contrarywind:wheelview:4.0.8'
+    implementation files('libs/easyedge-sdk.jar')
+    implementation files('libs/platform_sdk_v4.0.0115.jar')
+    implementation 'com.flipboard:bottomsheet-core:1.5.1'
+
+}

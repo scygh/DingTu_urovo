@@ -1,0 +1,559 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/root"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <include layout="@layout/include_title" />
+
+    <com.lianxi.dingtu.dingtu_urovo.mvp.ui.widget.ReboundScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:fillViewport="true"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@null"
+                app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+                <android.support.v7.widget.CardView
+                    android:id="@+id/cardview"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:alpha="1"
+                    app:cardBackgroundColor="#3387E5"
+                    app:cardCornerRadius="5dp"
+                    app:cardElevation="5dp"
+                    app:cardUseCompatPadding="true">
+
+                    <com.lianxi.dingtu.dingtu_urovo.mvp.ui.widget.label.LabelRelativeLayout
+                        android:id="@+id/label_rl"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="10dp"
+                        android:scaleType="fitXY"
+                        app:backgroundColor="#ff8d1a"
+                        app:direction="rightTop"
+                        app:labelBottomPadding="5dp"
+                        app:labelTopDistance="20dp"
+                        app:labelTopPadding="5dp"
+                        app:textContent="状态"
+                        app:textContentSize="14sp">
+
+
+                        <TextView
+                            android:id="@+id/name"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:drawableLeft="@mipmap/head"
+                            android:drawablePadding="10dp"
+                            android:padding="4dp"
+                            android:text="姓名 ****"
+                            android:textColor="@color/white"
+                            android:textSize="16sp" />
+
+                        <TextView
+                            android:layout_width="80dp"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"
+                            android:layout_marginRight="10dp"
+                            android:background="@drawable/shape_round_orange_bg"
+                            android:gravity="center"
+                            android:padding="5dp"
+                            android:text="正常卡"
+                            android:textColor="@color/white"
+                            android:textSize="13sp" />
+
+                        <TextView
+                            android:id="@+id/cost"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/name"
+                            android:layout_alignParentRight="true"
+                            android:layout_marginRight="10dp"
+                            android:ellipsize="end"
+                            android:fontFamily="@font/ptmono"
+                            android:maxLines="1"
+                            android:padding="5dp"
+                            android:text="工本费"
+                            android:textColor="@color/white"
+                            android:textSize="10sp"
+                            android:typeface="monospace" />
+
+                        <TextView
+                            android:id="@+id/number"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/name"
+                            android:ellipsize="end"
+                            android:fontFamily="@font/ptmono"
+                            android:maxLines="1"
+                            android:padding="4dp"
+                            android:text="NO. ****"
+                            android:textAllCaps="true"
+                            android:textColor="@color/white"
+                            android:textSize="12sp"
+                            android:typeface="monospace" />
+
+                        <TextView
+                            android:id="@+id/balance"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/number"
+                            android:ellipsize="end"
+                            android:fontFamily="@font/ptmono"
+                            android:maxLines="1"
+                            android:padding="4dp"
+                            android:text="现金:0.00"
+                            android:textColor="@color/white"
+                            android:textSize="45sp"
+                            android:textStyle="bold"
+                            android:typeface="monospace" />
+
+
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_above="@id/ll"
+                            android:layout_marginBottom="10dp"
+                            android:layout_toRightOf="@id/balance"
+                            android:text="元"
+                            android:textColor="@color/white"
+                            android:textSize="17sp"
+                            android:textStyle="bold" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_above="@id/ll"
+                            android:orientation="horizontal"
+                            android:visibility="gone">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="（提示：以上金额"
+                                android:textColor="@color/white"
+                                android:textSize="10sp" />
+
+                            <com.lianxi.dingtu.dingtu_urovo.mvp.ui.widget.HollowTextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:includeFontPadding="false"
+                                android:text="不包含"
+                                android:textSize="10sp"
+                                android:textStyle="bold"
+                                app:background_color="#80ffffff"
+                                app:corner_radius="2dp" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="赠送、补贴）"
+                                android:textColor="@color/white"
+                                android:textSize="10sp" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/ll"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/balance"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:padding="4dp"
+                                android:text="赠送："
+                                android:textColor="@color/white"
+                                android:textSize="14sp" />
+
+                            <TextView
+                                android:id="@+id/donate"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:ellipsize="end"
+                                android:fontFamily="@font/ptmono"
+                                android:maxLines="1"
+                                android:padding="4dp"
+                                android:textAllCaps="true"
+                                android:textColor="@color/white"
+                                android:textSize="14sp"
+                                android:typeface="monospace"
+                                android:text="0.00" />
+
+                            <View
+                                android:layout_width="2dp"
+                                android:layout_height="20dp"
+                                android:layout_marginLeft="20dp"
+                                android:layout_marginRight="20dp"
+                                android:background="@color/white" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:padding="4dp"
+                                android:text="补贴："
+                                android:textColor="@color/white"
+                                android:textSize="14sp" />
+
+                            <TextView
+                                android:id="@+id/subsidies"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:ellipsize="end"
+                                android:fontFamily="@font/ptmono"
+                                android:maxLines="1"
+                                android:padding="4dp"
+                                android:textAllCaps="true"
+                                android:textColor="@color/white"
+                                android:textSize="14sp"
+                                android:typeface="monospace"
+                                android:text="0.00"/>
+
+                        </LinearLayout>
+
+                    </com.lianxi.dingtu.dingtu_urovo.mvp.ui.widget.label.LabelRelativeLayout>
+
+                </android.support.v7.widget.CardView>
+
+                <android.support.v7.widget.CardView
+                    android:id="@+id/cardview0"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:alpha="0"
+                    app:cardBackgroundColor="#243037"
+                    app:cardCornerRadius="5dp"
+                    app:cardElevation="5dp"
+                    app:cardUseCompatPadding="true">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="10dp">
+
+
+                        <TextView
+                            android:id="@+id/name0"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:drawableLeft="@mipmap/head"
+                            android:drawablePadding="10dp"
+                            android:padding="4dp"
+                            android:text="账户已注销"
+                            android:textColor="@color/white"
+                            android:textSize="16sp" />
+
+                        <TextView
+                            android:layout_width="80dp"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"
+                            android:layout_marginRight="10dp"
+                            android:background="@drawable/shape_round_orange_bg"
+                            android:gravity="center"
+                            android:padding="5dp"
+                            android:text="空白卡"
+                            android:textColor="@color/white"
+                            android:textSize="13sp" />
+
+                        <TextView
+                            android:id="@+id/number0"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/name0"
+                            android:ellipsize="end"
+                            android:fontFamily="@font/ptmono"
+                            android:maxLines="1"
+                            android:padding="4dp"
+                            android:text="NO.0000"
+                            android:textAllCaps="true"
+                            android:textColor="@color/white"
+                            android:textSize="12sp"
+                            android:typeface="monospace" />
+
+                        <TextView
+                            android:id="@+id/balance0"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/number0"
+                            android:ellipsize="end"
+                            android:fontFamily="@font/ptmono"
+                            android:maxLines="1"
+                            android:padding="4dp"
+                            android:text="余额已退还！"
+                            android:textColor="@color/white"
+                            android:textSize="45sp"
+                            android:textStyle="bold"
+                            android:typeface="monospace" />
+
+                        <TextView
+                            android:id="@+id/tv10"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/number0"
+                            android:layout_marginTop="10dp"
+                            android:layout_toRightOf="@id/balance0"
+                            android:text=""
+                            android:textColor="@color/white"
+                            android:textSize="17sp"
+                            android:textStyle="italic"
+                            android:typeface="monospace" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_above="@id/ll0"
+                            android:layout_marginBottom="10dp"
+                            android:layout_toRightOf="@id/balance0"
+                            android:text=""
+                            android:textColor="@color/white"
+                            android:textSize="17sp"
+                            android:textStyle="bold|italic"
+                            android:typeface="monospace" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_above="@id/ll0"
+                            android:orientation="horizontal"
+                            android:visibility="invisible">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="（提示：以上金额"
+                                android:textColor="@color/white"
+                                android:textSize="10sp" />
+
+                            <com.lianxi.dingtu.dingtu_urovo.mvp.ui.widget.HollowTextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:includeFontPadding="false"
+                                android:text="不包含"
+                                android:textSize="10sp"
+                                android:textStyle="bold"
+                                app:background_color="#80ffffff"
+                                app:corner_radius="2dp" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="赠送、补贴）"
+                                android:textColor="@color/white"
+                                android:textSize="10sp" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/ll0"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/balance0"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:id="@+id/warn"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:drawableLeft="@mipmap/warning"
+                                android:gravity="center_vertical"
+                                android:padding="4dp"
+                                android:text="未清空用户卡片信息"
+                                android:textColor="@color/white"
+                                android:textSize="14sp"
+                                android:visibility="invisible" />
+
+                            <com.lianxi.dingtu.dingtu_urovo.mvp.ui.widget.HollowTextView
+                                android:id="@+id/tv_back"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="right"
+                                android:ellipsize="end"
+                                android:fontFamily="@font/ptmono"
+                                android:maxLines="1"
+                                android:paddingLeft="8dp"
+                                android:paddingTop="4dp"
+                                android:paddingRight="8dp"
+                                android:paddingBottom="4dp"
+                                android:text="BACK"
+                                android:textAllCaps="true"
+                                android:textSize="14sp"
+                                android:typeface="monospace"
+                                app:background_color="#80ffffff"
+                                app:corner_radius="2dp" />
+
+                        </LinearLayout>
+
+                    </RelativeLayout>
+
+                </android.support.v7.widget.CardView>
+
+            </RelativeLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:text="退还工本费"
+                    android:textColor="@color/colorPrimaryText"
+                    android:textSize="14sp" />
+
+                <EditText
+                    android:id="@+id/edit_cost"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10dp"
+                    android:background="@drawable/bg_edittext"
+                    android:hint="0.00"
+                    android:imeOptions="actionDone"
+                    android:inputType="numberDecimal"
+                    android:maxLines="1"
+                    android:padding="10dp"
+                    android:textColor="@android:color/black"
+                    android:textColorHint="@color/gray_general_hint"
+                    android:textSize="17sp" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height=".2dp"
+                android:layout_margin="4dp"
+                android:background="@color/diy_gray" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:text="退款现金额"
+                    android:textColor="@color/colorPrimaryText"
+                    android:textSize="14sp" />
+
+                <EditText
+                    android:id="@+id/edit_amount"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10dp"
+                    android:background="@drawable/bg_edittext"
+                    android:hint="0.00"
+                    android:imeOptions="actionDone"
+                    android:inputType="numberDecimal"
+                    android:maxLines="1"
+                    android:padding="10dp"
+                    android:textColor="@android:color/black"
+                    android:textColorHint="@color/gray_general_hint"
+                    android:textSize="17sp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:padding="10dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_above="@+id/ll_msg"
+                    android:layout_centerHorizontal="true"
+                    android:layout_margin="4dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <View
+                        android:layout_width="6dp"
+                        android:layout_height="14dp"
+                        android:background="#2A82E4" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:text="温馨提示"
+                        android:textColor="#505050"
+                        android:textSize="15sp"
+                        android:textStyle="bold" />
+
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:lineSpacingExtra="2dp"
+                    android:padding="2dp"
+                    android:text="1.账户注销不可逆"
+                    android:textColor="#a6a6a6"
+                    android:textSize="12sp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="2dp"
+                    android:text="2.在注销过程中，请勿拿走卡片"
+                    android:textColor="#a6a6a6"
+                    android:textSize="12sp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="2dp"
+                    android:text="3.注销会清空卡片信息"
+                    android:textColor="#a6a6a6"
+                    android:textSize="12sp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:lineSpacingExtra="2dp"
+                    android:padding="2dp"
+                    android:text="4.请在注销前确认清楚，否则造成的损失商家自行承担"
+                    android:textColor="#a6a6a6"
+                    android:textSize="12sp" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </com.lianxi.dingtu.dingtu_urovo.mvp.ui.widget.ReboundScrollView>
+
+    <Button
+        android:id="@+id/submit"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_margin="4dp"
+        android:background="@drawable/btn_nor_down"
+        android:gravity="center"
+        android:text="确认注销"
+        android:textColor="@color/white"
+        android:textSize="16sp" />
+
+</LinearLayout>

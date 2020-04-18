@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/root"
+    android:background="#fafafa"
+    android:orientation="vertical">
+
+    <include layout="@layout/include_title" />
+
+    <com.lianxi.dingtu.dingtu_urovo.mvp.ui.widget.ReboundScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:fillViewport="true"
+        android:scrollbars="none">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:scaleType="fitXY"
+                android:src="@mipmap/icon_15" />
+
+
+
+            <android.support.v7.widget.CardView
+                android:id="@+id/cardview"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="50dp"
+                android:layout_marginRight="10dp"
+                app:cardBackgroundColor="@color/white"
+                app:cardCornerRadius="5dp"
+                app:cardElevation="5dp"
+                app:cardPreventCornerOverlap="false"
+                app:cardUseCompatPadding="true">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    android:gravity="center_vertical"
+                    android:orientation="vertical"
+                    android:padding="10dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="消费金额"
+                        android:textColor="@color/colorPrimaryText"
+                        android:textSize="24sp" />
+
+                    <EditText
+                        android:id="@+id/cost"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:layout_weight="1"
+                        android:background="@null"
+                        android:hint="输入金额"
+                        android:textColor="@color/colorPrimaryText"
+                        android:textColorHint="#a6a6a6"
+                        android:textSize="26sp"
+                        android:ellipsize="end"
+                        android:fontFamily="@font/ptmono"
+                        android:maxLines="1"
+                        android:textAllCaps="true"
+                        android:typeface="monospace"
+                        android:inputType="numberDecimal"
+                        />
+
+
+                </LinearLayout>
+
+            </android.support.v7.widget.CardView>
+
+            <com.lianxi.dingtu.dingtu_urovo.mvp.ui.widget.HollowTextView
+                android:id="@+id/htv1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/cardview"
+                android:layout_marginLeft="15dp"
+                android:paddingLeft="8dp"
+                android:paddingTop="4dp"
+                android:paddingRight="8dp"
+                android:paddingBottom="4dp"
+                android:text="支付宝支付"
+                android:textSize="17sp"
+                android:textStyle="bold"
+                app:background_color="#80ff573a"
+                app:corner_radius="2dp" />
+
+            <com.lianxi.dingtu.dingtu_urovo.mvp.ui.widget.HollowTextView
+                android:id="@+id/htv2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/cardview"
+                android:layout_marginLeft="15dp"
+                android:layout_toRightOf="@+id/htv1"
+                android:paddingLeft="8dp"
+                android:paddingTop="4dp"
+                android:paddingRight="8dp"
+                android:paddingBottom="4dp"
+                android:text="微信支付"
+                android:textSize="17sp"
+                android:textStyle="bold"
+                app:background_color="#806249c6"
+                app:corner_radius="2dp" />
+
+            <com.lianxi.dingtu.dingtu_urovo.mvp.ui.widget.HollowTextView
+                android:id="@+id/htv3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/cardview"
+                android:layout_marginLeft="15dp"
+                android:layout_toRightOf="@+id/htv2"
+                android:paddingLeft="8dp"
+                android:paddingTop="4dp"
+                android:paddingRight="8dp"
+                android:paddingBottom="4dp"
+                android:text="会员码"
+                android:textSize="17sp"
+                android:textStyle="bold"
+                app:background_color="#804aab8e"
+                app:corner_radius="2dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_above="@+id/ll_msg"
+                android:layout_centerHorizontal="true"
+                android:layout_margin="4dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <View
+                    android:layout_width="6dp"
+                    android:layout_height="14dp"
+                    android:background="#2A82E4" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:text="温馨提示"
+                    android:textColor="#505050"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_msg"
+                android:layout_width="match_parent"
+                android:layout_height="65dp"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                android:layout_margin="4dp"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="65dp"
+                    android:layout_height="match_parent"
+                    android:background="#6F84A4"
+                    android:orientation="vertical"
+                    android:gravity="center_vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:text="付款"
+                        android:textColor="#e5e5e5"
+                        android:textSize="14sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:text="二维码"
+                        android:textColor="#ffffff"
+                        android:textSize="14sp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="#E2E1EF"
+                    android:gravity="center_vertical"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:text="扫码收款前，必须先输入消费金额"
+                        android:textColor="#505050"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:text="支持支付宝付款码、微信付款码以及商家会员码"
+                        android:textColor="#505050"
+                        android:textSize="12sp" />
+                </LinearLayout>
+            </LinearLayout>
+        </RelativeLayout>
+
+    </com.lianxi.dingtu.dingtu_urovo.mvp.ui.widget.ReboundScrollView>
+
+    <Button
+        android:id="@+id/confirm"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_margin="4dp"
+        android:background="@drawable/btn_nor_down"
+        android:gravity="center"
+        android:text="扫码收款"
+        android:textColor="@color/white"
+        android:textSize="16sp" />
+
+</LinearLayout>

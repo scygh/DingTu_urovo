@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<animation-list xmlns:android="http://schemas.android.com/apk/res/android"
+    android:oneshot="false">
+    <item android:duration="100">
+        <clip
+            android:clipOrientation="horizontal"
+            android:drawable="@mipmap/kaoyan_tip_f1"
+            android:gravity="left" />
+    </item><item android:duration="100">
+    <clip
+        android:clipOrientation="horizontal"
+        android:drawable="@mipmap/kaoyan_tip_f2"
+        android:gravity="left" />
+</item>
+
+</animation-list>

@@ -1,0 +1,53 @@
+{
+"code": "0",
+"pub_Dictionary_Item": [{
+"ITEM_CODE":"1",
+"ITEM_NAME":"手动消费",
+"CHAR1":"消费模式"
+},{
+"ITEM_CODE":"2",
+"ITEM_NAME":"自动消费",
+"CHAR1":"消费模式"
+},{
+"ITEM_CODE":"3",
+"ITEM_NAME":"当面付",
+"CHAR1":"消费模式"
+},{
+"ITEM_CODE":"4",
+"ITEM_NAME":"商品消费",
+"CHAR1":"消费模式"
+},{
+  "ITEM_CODE":"5",
+  "ITEM_NAME":"开户",
+  "CHAR1":"用户管理"
+},{
+"ITEM_CODE":"6",
+"ITEM_NAME":"充值",
+"CHAR1":"用户管理"
+},{
+"ITEM_CODE":"7",
+"ITEM_NAME":"退款",
+"CHAR1":"用户管理"
+},{
+"ITEM_CODE":"8",
+"ITEM_NAME":"注销",
+"CHAR1":"用户管理"
+},{
+"ITEM_CODE":"9",
+"ITEM_NAME":"扫码充值",
+"CHAR1":"用户管理"
+ },{
+"ITEM_CODE":"10",
+"ITEM_NAME":"当日收益",
+"CHAR1":"报表中心"
+ },{
+"ITEM_CODE":"11",
+"ITEM_NAME":"充值报表",
+"CHAR1":"报表中心"
+ },{
+"ITEM_CODE":"12",
+"ITEM_NAME":"消费报表",
+"CHAR1":"报表中心"
+ }
+]
+}

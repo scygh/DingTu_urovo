@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <com.lianxi.dingtu.dingtu_urovo.mvp.ui.widget.ReboundScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/color_000000">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:scaleType="fitXY"
+                    android:src="@mipmap/icon_top" />
+
+                <com.lianxi.dingtu.dingtu_urovo.mvp.ui.widget.HollowTextView
+                    android:id="@+id/account"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginRight="8dp"
+                    android:layout_toLeftOf="@+id/company_code"
+                    android:drawableLeft="@mipmap/head"
+                    android:paddingLeft="8dp"
+                    android:paddingTop="4dp"
+                    android:paddingRight="8dp"
+                    android:paddingBottom="4dp"
+                    android:text="当前账号"
+                    android:textSize="17sp"
+                    android:textStyle="bold"
+                    app:background_color="#ff4b33"
+                    app:corner_radius="2dp" />
+
+                <com.lianxi.dingtu.dingtu_urovo.mvp.ui.widget.HollowTextView
+                    android:id="@+id/company_code"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginRight="8dp"
+                    android:paddingLeft="8dp"
+                    android:paddingTop="4dp"
+                    android:paddingRight="8dp"
+                    android:paddingBottom="4dp"
+                    android:text="单位代码"
+                    android:textSize="17sp"
+                    android:textStyle="bold"
+                    app:background_color="#ffffff"
+                    app:corner_radius="2dp" />
+
+            </RelativeLayout>
+
+
+            <LinearLayout
+                android:id="@+id/ll_content"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="50dp"
+                android:orientation="vertical" />
+
+        </LinearLayout>
+
+    </com.lianxi.dingtu.dingtu_urovo.mvp.ui.widget.ReboundScrollView>
+
+</LinearLayout>

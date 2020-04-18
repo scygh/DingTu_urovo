@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item type="id" name="product_name"/>
+    <item type="id" name="sy_image"></item>
+    <item type="id" name="image"></item>
+    <item type="id" name="sy_image_quantity"></item>
+    
+    <eat-comment/>
+    <item name="node_header" type="id"/>
+    <item name="node_items" type="id"/>
+    <item name="tree_items" type="id"/>
+</resources>

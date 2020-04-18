@@ -1,0 +1,47 @@
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:state_pressed="true">
+        <set>                 <!--存在多个 Animator ，可以使用 <set/> 标签将其包裹起-->
+            <objectAnimator
+                android:interpolator="@android:anim/accelerate_interpolator"
+                android:duration="200"
+                android:propertyName="scaleX"
+                android:valueFrom="1"
+                android:valueTo="0.85"
+                android:valueType="floatType">
+
+            </objectAnimator>
+            <objectAnimator
+                android:interpolator="@android:anim/accelerate_interpolator"
+                android:duration="200"
+                android:propertyName="scaleY"
+                android:valueFrom="1"
+                android:valueTo="0.85"
+                android:valueType="floatType">
+
+            </objectAnimator>
+        </set>
+    </item>
+
+    <item>
+        <set>
+            <objectAnimator
+                android:interpolator="@android:anim/accelerate_interpolator"
+                android:duration="200"
+                android:propertyName="scaleX"
+                android:valueFrom="0.85"
+                android:valueTo="1"
+                android:valueType="floatType">
+
+            </objectAnimator>
+            <objectAnimator
+                android:interpolator="@android:anim/accelerate_interpolator"
+                android:duration="200"
+                android:propertyName="scaleY"
+                android:valueFrom="0.85"
+                android:valueTo="1"
+                android:valueType="floatType">
+
+            </objectAnimator>
+        </set>
+    </item>
+</selector>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<tabs>
+    <tab
+        inActiveColor="#212121"
+        activeColor="#FF0000"
+        icon="@mipmap/icon_home"
+        id="@+id/tab_home"
+        title="@string/title_home" />
+
+    <tab
+        inActiveColor="#212121"
+        activeColor="#FF0000"
+        icon="@mipmap/icon_mine"
+        id="@+id/tab_mine"
+        title="@string/title_mine" />
+
+</tabs>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <dimen name="text_size_super_big">120sp</dimen>
+    <dimen name="text_size_big">40sp</dimen>
+    <dimen name="text_size_xl">20sp</dimen>
+    <dimen name="text_size_l">18sp</dimen>
+    <dimen name="text_size_m">16sp</dimen>
+    <dimen name="text_size_s">14sp</dimen>
+    <dimen name="text_size_xs">12sp</dimen>
+
+    <dimen name="divider_height">0.5dp</dimen>
+    <dimen name="divider_width">0.5dp</dimen>
+
+    <dimen name="default_label_title_size">10sp</dimen>
+    <dimen name="default_label_content_size">12sp</dimen>
+    <dimen name="default_label_top_padding">15dp</dimen>
+    <dimen name="default_label_bottom_padding">10dp</dimen>
+
+    <dimen name="spacing_medium">8dp</dimen>
+
+</resources>
